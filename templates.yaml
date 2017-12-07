@@ -1,9 +1,11 @@
 welcome: Welcome to Ghost, the spoken word game. If you would like instructions for how to play, say instructions. If you would like to begin playing, say start.
 
-instructions: Ghost is a word building game with two players. Each player's goal is to make the other player spell a full word. I will start by choosing a letter from the alphabet. You must then add another letter to the first. I will then add a letter to that word fragment with a word in mind, without making a word fragment that spells a word. The first player to add a letter to the word fragment that makes a full word loses. Valid words are those in the English Scrabble dictionary that are longer than three letters. For example, I may say the letter p, with the word prince in mind. You may say the letter i, with the word in mind being pillow. I may say the letter c, with the word picnic in mind. You may say the letter k, with the word picking in mind. However, pick is a full word, so you would lose. Remember to always say my letter is. and then say your letter to me. If you would like to hear the word fragment again, say repeat. If you would like me to repeat the instructions, say instructions. If you would like to start a round, say start.
+instructions: Ghost is a word building game with two players. Each player's goal is to make the other player spell a full word. I will start by choosing a letter from the alphabet. You must then add another letter to the first. I will then add a letter to that word fragment with a word in mind, without making a word fragment that spells a word. The first player to add a letter to the word fragment that makes a full word loses. You can say repeat during the round to hear the word fragment again. Valid words are those in the English Scrabble dictionary that are longer than three letters. For example, I may say the letter p, with the word prince in mind. You may say the letter i, with the word in mind being pillow. I may say the letter c, with the word picnic in mind. You may say the letter k, with the word picking in mind. However, pick is a full word, so you would lose. Remember to always say my letter is. and then say your letter to me. If you would like to hear the word fragment again, say repeat. If you would like me to repeat the instructions, say instructions. If you would like to start a round, say start.
 
 get_next_letter_begin: |
-  <speak> 
+  <speak>
+    You can always say repeat to hear the word fragment again. 
+    <break time="0.5s"/>
     <prosody rate='slow'>
     My letter is 
     {{ word_fragment[-1] }}
@@ -77,7 +79,8 @@ indict: Sorry, {{ word_fragment }} is a real word, you lose. Say start to play a
 
 madeup: <speak> Sorry, <say-as interpret-as="spell-out">{{ word_fragment }}</say-as> is not a real word, you lose. Say start to play again. </speak>
 
-madeupcould: Sorry, there are no words that start with {{ word_fragment[0]|join(" ") }}. I was going for {{ word_fragment[1] }},  you lose. Say start to play again.
+madeupcould2: <speak> Sorry, there are no words that start with {{ word_fragment[0]|join(" ") }}. I was going for {{ word_fragment[1] }}  you lose. Say start to play again. </speak>
+madeupcould: Sorry, there are no words that start with {{ word_fragment[0]|join(" ") }}. I was going for {{ word_fragment[1] }},  you lose. Say start to play again.  
 
 round: Can you repeat the numbers {{ numbers|join(", ") }} backwards?
 
